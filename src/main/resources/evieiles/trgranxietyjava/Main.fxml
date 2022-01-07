@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="874.0" prefWidth="823.0" text="Evie Iles Final Project" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="evieiles.trgranxietyjava.MainController">
+  <content>
+    <AnchorPane maxHeight="1000.0" maxWidth="800.0" minHeight="0.0" minWidth="0.0" prefHeight="537.0" prefWidth="598.0">
+
+
+         <children>
+            <Label layoutX="20.0" layoutY="14.0" text="Welcome to Trgr, your Anxiety Companion." />
+            <Label alignment="TOP_LEFT" layoutX="23.0" layoutY="51.0" text="Are you currently feeling distressed?" />
+            <Button fx:id="assistanceBtn" layoutX="27.0" layoutY="91.0" mnemonicParsing="false" onMouseClicked="#assistanceClick" prefHeight="25.0" prefWidth="148.0" text="Yes, I need help." textFill="RED" />
+            <Button layoutX="204.0" layoutY="91.0" mnemonicParsing="false" onMouseClicked="#OkClick" text="I'm currently feeling fine." />
+            <Label fx:id="chooseLbl" layoutX="17.0" layoutY="205.0" text="QuestionnaireResponseText" />
+            <ChoiceBox fx:id="trgrList" layoutX="26.0" layoutY="238.0" prefWidth="150.0" />
+            <Label fx:id="compassionText" layoutX="14.0" layoutY="282.0" text="TriggerCompassionText" />
+            <Label fx:id="copingskillSuggest" layoutX="19.0" layoutY="313.0" text="CopingskillOfferText" />
+            <Button fx:id="ySkill" layoutX="19.0" layoutY="340.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="148.0" text="Yes, Please." />
+            <Button layoutX="208.0" layoutY="340.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="160.0" text="I'm not sure it would help." />
+            <Label fx:id="skillLabel" layoutX="14.0" layoutY="381.0" prefHeight="50.0" prefWidth="432.0" text="Excellent! I am more than happy to assist. Before I suggest something to try, what type fo self-care methods do you prefer?" textOverrun="CLIP" wrapText="true" />
+            <CheckBox fx:id="artBox" layoutX="9.0" layoutY="449.0" mnemonicParsing="false" text="Art Time" />
+            <CheckBox fx:id="distractBox" layoutX="132.0" layoutY="449.0" mnemonicParsing="false" text="Distraction" />
+            <CheckBox fx:id="physBox" layoutX="253.0" layoutY="449.0" mnemonicParsing="false" text="Physical" />
+            <CheckBox fx:id="cbtBox" layoutX="384.0" layoutY="449.0" mnemonicParsing="false" text="CBT/DBT" />
+            <Label fx:id="skillProcessingText" layoutX="15.0" layoutY="490.0" text="Empathy Skill Text" />
+            <Label fx:id="tryLbl" layoutX="15.0" layoutY="520.0" text="Please select a coping skill to try from the following:" />
+            <ChoiceBox fx:id="skillChoice" layoutX="17.0" layoutY="549.0" prefHeight="25.0" prefWidth="271.0" />
+            <Label fx:id="skillAcceptText" layoutX="16.0" layoutY="575.0" prefHeight="62.0" prefWidth="450.0" text="Great! I'll explain how to implement this coping skill and then I'll check back with you to guage it's effectiveness. Does that sound alright with you?" textOverrun="CLIP" wrapText="true" />
+            <Button fx:id="checkYes" layoutX="20.0" layoutY="645.0" mnemonicParsing="false" text="Please check back in." />
+            <Button fx:id="checkNo" layoutX="188.0" layoutY="645.0" mnemonicParsing="false" text="I do not want a follow up." />
+            <Label fx:id="skillDescText" layoutX="20.0" layoutY="687.0" text="CopingSkillDescriptionText" />
+            <ImageView fx:id="companionHappy" fitHeight="284.0" fitWidth="289.0" layoutX="497.0" layoutY="558.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../assets/happy.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="companionUpset" fitHeight="217.0" fitWidth="290.0" layoutX="500.0" layoutY="561.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../assets/upset.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="companionUpset1" fitHeight="217.0" fitWidth="290.0" layoutX="500.0" layoutY="561.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../assets/compOhNo.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="content" fitHeight="304.0" fitWidth="301.0" layoutX="551.0" layoutY="515.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../assets/companionContent.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="23.0" layoutY="719.0" prefHeight="17.0" prefWidth="79.0" text="FollowUpText" />
+            <ProgressBar fx:id="followUpTimer" layoutX="541.0" layoutY="519.0" prefWidth="200.0" progress="0.0" />
+            <Label fx:id="timerText" layoutX="614.0" layoutY="481.0" text="TimerText" />
+            <Button fx:id="skillSuccess" layoutX="19.0" layoutY="755.0" mnemonicParsing="false" text="Yes, please add this to my toolbox." />
+            <Button fx:id="skillFail" layoutX="246.0" layoutY="753.0" mnemonicParsing="false" text="This didn't work for me." />
+            <Label fx:id="retryText" layoutX="22.0" layoutY="802.0" text="AttemptAnotherText" />
+            <Label fx:id="eventLoggedText" layoutX="167.0" layoutY="802.0" text="LogSuccessful" />
+            <Label fx:id="dangerText" layoutX="22.0" layoutY="142.0" text="DangerAssessmentText" />
+            <Slider fx:id="dangerAssess" layoutX="51.0" layoutY="179.0" prefHeight="14.0" prefWidth="289.0" />
+         </children></AnchorPane>
+  </content>
+</TitledPane>
