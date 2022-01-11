@@ -1,27 +1,76 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.Slider?>
 <?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 
-<TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" text="Evie Iles Final Project" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="evieiles.trgranxietyjava.MainController">
+<TitledPane fx:id="titlePane" animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="874.0" prefWidth="823.0" text="Evie Iles Final Project" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="evieiles.trgranxietyjava.MainController">
   <content>
-    <AnchorPane maxHeight="1000.0" maxWidth="800.0" minHeight="0.0" minWidth="0.0" prefHeight="1000.0" prefWidth="800.0">
+    <AnchorPane fx:id="anchorPane" maxHeight="1000.0" maxWidth="800.0" minHeight="0.0" minWidth="0.0" prefHeight="537.0" prefWidth="598.0">
 
 
          <children>
-            <Label layoutX="174.0" layoutY="21.0" text="Welcome to Trgr, your Anxiety Companion." />
-            <Label layoutX="193.0" layoutY="52.0" text="Are you currently feeling distressed?" />
-            <Button fx:id="assistanceBtn" layoutX="140.0" layoutY="91.0" mnemonicParsing="false" onMouseClicked="#assistanceClick" prefHeight="25.0" prefWidth="148.0" text="Yes, I need help." textFill="RED" />
-            <Button layoutX="311.0" layoutY="91.0" mnemonicParsing="false" onMouseClicked="#OkClick" text="I'm currently feeling fine." />
-            <Label fx:id="chooseLbl" layoutX="117.0" layoutY="137.0" text="I'm sorry to hear that you are feeling distressed. Please select a reason:" />
-            <ChoiceBox fx:id="trgrList" layoutX="214.0" layoutY="169.0" prefWidth="150.0" />
-            <Label fx:id="compassionText" layoutX="226.0" layoutY="210.0" text="TriggerCompassionText" />
-            <Label fx:id="copingskillSuggest" layoutX="118.0" layoutY="240.0" text="Would you like for me to suggest a coping skill for the situation?" />
-            <Button fx:id="ySkill" layoutX="119.0" layoutY="272.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="148.0" text="Yes, Please." />
-            <Button layoutX="304.0" layoutY="271.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="160.0" text="I'm not sure it would help." />
+            <Label layoutX="270.0" layoutY="14.0" text="Welcome to Trgr, your Anxiety Companion." />
+            <Label alignment="TOP_LEFT" layoutX="35.0" layoutY="44.0" text="Are you currently feeling distressed?" />
+            <Button fx:id="assistanceBtn" layoutX="28.0" layoutY="67.0" mnemonicParsing="false" onMouseClicked="#assistanceClick" prefHeight="25.0" prefWidth="148.0" text="Yes, I need help." textFill="RED" />
+            <Button layoutX="212.0" layoutY="67.0" mnemonicParsing="false" onMouseClicked="#OkClick" text="I'm currently feeling fine." />
+            <Label fx:id="skillProcessingText" layoutX="642.0" layoutY="92.0" text="Empathy Skill Text" />
+            <ChoiceBox fx:id="skillChoice" layoutX="518.0" layoutY="224.0" prefHeight="25.0" prefWidth="271.0" />
+            <Label fx:id="skillAcceptText" layoutX="532.0" layoutY="300.0" prefHeight="62.0" prefWidth="450.0" text="Great! I'll explain how to implement this coping skill and then I'll check back with you to guage it's effectiveness. Does that sound alright with you?" textOverrun="CLIP" wrapText="true" />
+            <Button fx:id="checkYes" layoutX="20.0" layoutY="645.0" mnemonicParsing="false" text="Please check back in." />
+            <Button fx:id="checkNo" layoutX="188.0" layoutY="645.0" mnemonicParsing="false" text="I do not want a follow up." />
+            <Label fx:id="skillDescText" layoutX="20.0" layoutY="687.0" text="CopingSkillDescriptionText" />
+            <ImageView fx:id="companionImg" fitHeight="304.0" fitWidth="301.0" layoutX="551.0" layoutY="544.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../assets/companionContent.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="followUpText" layoutX="23.0" layoutY="719.0" prefHeight="17.0" prefWidth="79.0" text="FollowUpText" />
+            <ProgressBar fx:id="followUpTimer" layoutX="541.0" layoutY="519.0" prefWidth="200.0" progress="0.0" />
+            <Label fx:id="timerText" layoutX="614.0" layoutY="481.0" text="TimerText" />
+            <Button fx:id="skillSuccess" layoutX="19.0" layoutY="755.0" mnemonicParsing="false" text="Yes, please add this to my toolbox." />
+            <Button fx:id="skillFail" layoutX="246.0" layoutY="753.0" mnemonicParsing="false" text="This didn't work for me." />
+            <Label fx:id="retryText" layoutX="22.0" layoutY="802.0" text="AttemptAnotherText" />
+            <Label fx:id="eventLoggedText" layoutX="167.0" layoutY="802.0" text="LogSuccessful" />
+            <Pane id="dangerPane" fx:id="assessmentPane" layoutX="16.0" layoutY="107.0" prefHeight="123.0" prefWidth="450.0" stylesheets="@application.css">
+               <children>
+                  <Slider id="dangerPane" fx:id="dangerAssess" layoutX="39.0" layoutY="62.0" majorTickUnit="1.0" max="5.0" min="1.0" minorTickCount="1" prefHeight="38.0" prefWidth="372.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+                  <Label fx:id="dangerText" layoutX="57.0" layoutY="21.0" text="DangerAssessmentText" />
+               </children>
+            </Pane>
+            <Pane layoutX="28.0" layoutY="224.0" prefHeight="103.0" prefWidth="413.0">
+               <children>
+                  <Label fx:id="compassionText" layoutX="43.0" layoutY="18.0" text="TriggerCompassionText" />
+                  <ChoiceBox fx:id="trgrList" layoutX="43.0" layoutY="54.0" prefWidth="150.0" />
+               </children>
+            </Pane>
+            <Pane layoutX="30.0" layoutY="327.0" prefHeight="122.0" prefWidth="433.0">
+               <children>
+                  <Label fx:id="chooseLbl" layoutX="14.0" layoutY="14.0" text="QuestionnaireResponseText" />
+                  <Label fx:id="copingskillSuggest" layoutX="14.0" layoutY="41.0" text="CopingskillOfferText" />
+                  <Button fx:id="ySkill" layoutX="14.0" layoutY="71.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="148.0" text="Yes, Please." />
+                  <Button fx:id="noSkill" layoutX="221.0" layoutY="71.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="160.0" text="I'm not sure it would help." />
+               </children>
+            </Pane>
+            <Pane layoutX="22.0" layoutY="452.0" prefHeight="153.0" prefWidth="478.0">
+               <children>
+                  <Label fx:id="skillLabel" layoutX="14.0" layoutY="14.0" prefHeight="50.0" prefWidth="432.0" text="Excellent! I am more than happy to assist. Before I suggest something to try, what type fo self-care methods do you prefer?" textOverrun="CLIP" wrapText="true" />
+                  <Button fx:id="suggestSkillBtn" layoutX="14.0" layoutY="114.0" mnemonicParsing="false" text="Give me suggestions" />
+                  <CheckBox fx:id="artBox" layoutX="140.0" layoutY="68.0" mnemonicParsing="false" text="Art Time" />
+                  <CheckBox fx:id="distractBox" layoutX="23.0" layoutY="68.0" mnemonicParsing="false" text="Distraction" />
+                  <CheckBox fx:id="physBox" layoutX="264.0" layoutY="68.0" mnemonicParsing="false" text="Physical" />
+                  <CheckBox fx:id="cbtBox" layoutX="387.0" layoutY="68.0" mnemonicParsing="false" text="CBT/DBT" />
+               </children>
+            </Pane>
+            <Label fx:id="tryLbl" layoutX="558.0" layoutY="168.0" text="Please select a coping skill to try from the following:" />
          </children></AnchorPane>
   </content>
 </TitledPane>

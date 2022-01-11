@@ -13,6 +13,8 @@ public class Main extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("Main.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 320, 240);
         stage.setScene(scene);
+        String css = getClass().getResource("application.css").toExternalForm();
+        scene.getStylesheets().add(css);
         stage.show();
 
         //create class to hold triggers
