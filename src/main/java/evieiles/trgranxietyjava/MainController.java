@@ -44,8 +44,15 @@ public class MainController implements Initializable {
     @FXML private ImageView companionImg;
 //    @FXML private Timer followUpTimer;
     @FXML private Button suggestSkillBtn;
-    @FXML private Pane assessmentPane;
 
+    //Organizational panes for hiding visibility
+    @FXML private Pane assessmentPane;
+    @FXML private Pane triggerPane;
+    @FXML private Pane csOfferPane;
+    @FXML private Pane preferencePane;
+    @FXML private Pane csChoosePane;
+    @FXML private Pane followUpPane;
+    @FXML private Pane companionPane;
 
     //create array of triggers
     private String[] triggers = {"Social Anxiety", "Interpersonal Relations", "Physical Wellness", "Work Stressors", "School", "Finances"};
@@ -57,7 +64,7 @@ public class MainController implements Initializable {
 
 
 
-    //if assistanceBtn was selected, hide the okBtn
+    //if assistanceBtn was selected, disable ok btn
     @FXML
     private void assistanceClick(MouseEvent mouseEvent) {
         okBtn.setDisable(true);
@@ -73,8 +80,13 @@ public class MainController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         //on window initilization, hide certain labels until triggered.
         chooseLbl.setVisible(false);
-        dangerText.setVisible(false);
         assessmentPane.setVisible(false);
+        triggerPane.setVisible(false);
+        csOfferPane.setVisible(false);
+        preferencePane.setVisible(false);
+        csChoosePane.setVisible(false);
+        followUpPane.setVisible(false);
+
 
         //add items to choicebox
         trgrList.getItems().addAll(triggers);

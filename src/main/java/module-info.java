@@ -5,6 +5,7 @@ module evieiles.trgranxietyjava {
     requires org.controlsfx.controls;
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
+    requires java.sql;
 
     opens evieiles.trgranxietyjava to javafx.fxml;
     exports evieiles.trgranxietyjava;
