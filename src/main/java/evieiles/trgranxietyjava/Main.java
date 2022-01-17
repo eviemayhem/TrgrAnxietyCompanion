@@ -6,6 +6,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Date;
 
 public class Main extends Application {
     @Override
@@ -16,6 +17,7 @@ public class Main extends Application {
         String css = getClass().getResource("application.css").toExternalForm();
         scene.getStylesheets().add(css);
         stage.show();
+
 
         //create class to hold triggers
         class Triggers{
