@@ -14,40 +14,35 @@ import java.util.Date;
 import java.util.ResourceBundle;
 import java.util.Timer;
 
+
+
 public class MainController implements Initializable {
+    //distraction skills
+    CopingSkills distraction = new CopingSkills("Dumb Dad Joke", "What do you call a witch who lives at the beach?\nA sand witch.", "Distraction.");
+    //art Skills
+    CopingSkills art = new CopingSkills("Drawing From Life", "Pick an object from your life and draw it.", "Art");
+    //Physical
+    CopingSkills physical = new CopingSkills("Hot/Cold Therapy", "Hold a hot cup of tea or maybe hold an icecube.", "Physical");
+    //CBT
+    CopingSkills cbt = new CopingSkills("Cognitive Restructuring", "IDK my bff jill", "Cbt");
+
+
     //Element Variables
-    @FXML private Label chooseLbl;
-    @FXML private Button assistanceBtn;
-    @FXML private Button refuseBtn;
     @FXML private Pane initiatePane;
     @FXML private Slider dangerAssess;
     @FXML private Pane successPane;
-    @FXML private Label eventLoggedText;
-
-    @FXML private Button ySkill;
-    @FXML private Button noSkill;
-    @FXML private Label skillLabel;
     @FXML private CheckBox artBox;
     @FXML private CheckBox distractBox;
     @FXML private CheckBox physBox;
     @FXML private CheckBox cbtBox;
 
-    @FXML private Label tryLbl;
+ //ChoiceBoxes
     @FXML private ChoiceBox<String> skillChoice;
-    //DropDown Menu
     @FXML private ChoiceBox<String> trgrList;
     @FXML private Label compassionText;
-
-    @FXML private Button checkYes;
-    @FXML private Button  checkNo;
-
-    @FXML private Button skillSuccess;
-    @FXML private Button skillFail;
-    @FXML private Label retryText;
     @FXML private ImageView companionHolder;
     @FXML private ImageView bubbleHolder;
 //    @FXML private Timer followUpTimer;
-    @FXML private Button suggestSkillBtn;
 
     //Organizational panes for hiding visibility
     @FXML private Pane assessmentPane;
@@ -57,22 +52,20 @@ public class MainController implements Initializable {
     @FXML private Pane csChoosePane;
     @FXML private Pane followUpPane;
 
-
     //Companion Phases
-
     @FXML Image companionHappy = new Image("happy.png");
-  Image companionContent = new Image ("companionContent.png");
-  Image upset = new Image ("upset.png");
-  Image worried = new Image ("compOhNo.png");
- Image thoughtBubble = new Image ("thoughtBubble.png");
+          Image companionContent = new Image ("companionContent.png");
+          Image upset = new Image ("upset.png");
+          Image worried = new Image ("compOhNo.png");
+          Image thoughtBubble = new Image ("thoughtBubble.png");
 
     //create array of triggers
     private String[] triggers = {"Social Anxiety", "Interpersonal Relations", "Physical Wellness", "Work Stressors", "School", "Finances"};
     // creates arrays for coping skill options to use to populate depending on checkboxes selected
-    private String[] artSkills = {"Drawing from Life", "Recreate your favorite piece of art", "Virtual Art Gallery" };
-    private String[] distractskills = {"Dumb Dad Jokes","Heat/Cold therapy", "Audio therapy", "Cleaning", "Repetitive Motion"};
-    private String[] physSkills = {"Heat/Cold Therapy", "Go for a run/Walk", "Yoga", "Hygiene Self-Care"};
-    private String[] cbtSkills = {"Cognitive Restructuring", "Guided Discorvery", "Thought Recording", "Activity Scheduling"};
+    private String[] artSkills = {"Drawing from Life"};
+    private String[] distractskills = {"Dumb Dad Jokes"};
+    private String[] physSkills = {"Heat/Cold Therapy"};
+    private String[] cbtSkills = {"Cognitive Restructuring"};
 
     //Initiate log
     Date date = new Date();
@@ -109,6 +102,7 @@ public class MainController implements Initializable {
         }
     }
 
+    //Allows user to select a trigger
     @FXML
     private void triggerSelection(MouseEvent mouseEvent) {
         trgrList.getValue();
@@ -119,12 +113,60 @@ public class MainController implements Initializable {
         csOfferPane.setVisible(true);
         compassionText.setText("I see...so you are dealing with " + trgrList.getValue() + ".\n I'm sure that must be tough.\nIf you'd like, I could provide a few skills to try to help you calm down."); //Change companion text
     }
-//Offer Coping Skill
+
+    //Offers the user Coping Skill
+    @FXML
     private void skillAccept(MouseEvent mouseEvent){
+        companionHolder.setImage(companionContent);
         csOfferPane.setVisible(false);
         compassionText.setText("Excellent!\nBefore we get started, please select the type of self care you enjoy.");
+        preferencePane.setVisible(true);
+
     }
 
+    //Determine coping skills preferences
+    @FXML
+    private void preferenceSelect(MouseEvent mouseEvent){
+        if (distractBox.isSelected()){
+            skillChoice.getItems().addAll(distractskills);
+            triggerLog.setSkillPreference("Distraction");
+            compassionText.setText("I see that you like to distract yourself when you're upset.\n Let's see what we have in our toolbox.");
+            csChoosePane.setVisible(true);
+        }
+        else if (artBox.isSelected()){
+            skillChoice.getItems().addAll(artSkills);
+            triggerLog.setSkillPreference("Art");
+            compassionText.setText("I see that you like to create art.\n Let's see what we have in our toolbox.");
+            csChoosePane.setVisible(true);
+        }
+        else if (physBox.isSelected()){
+            skillChoice.getItems().addAll(physSkills);
+            triggerLog.setSkillPreference("Physical");
+            compassionText.setText("I see that you like to be physical.\n Let's see what we have in our toolbox.");
+            csChoosePane.setVisible(true);
+        }
+        else if (cbtBox.isSelected()){
+            triggerLog.setSkillPreference("CBT");
+            skillChoice.getItems().addAll(cbtSkills);
+            compassionText.setText("I see that you enjoy CBT.\n Let's see what we have in our toolbox.");
+            csChoosePane.setVisible(true);
+        }
+        else{
+            compassionText.setText("Please select a preference type. You can select more than one.");
+        }
+    }
+
+    //Choose Skill and change description
+    @FXML
+    private void skillSelection(MouseEvent mouseEvent){
+        triggerLog.setSkillSelection(skillChoice.getValue());
+        if (skillChoice.getValue() == "Distraction"){
+            compassionText.setText(distraction.skillDescription);
+        }
+        else if (skillChoice.getValue() == "Art"){
+            compassionText.setText(art.skillDescription);
+        }
+    }
     //if refuseBtn was selected, delete assistanceBtn
     @FXML
     private void refuseAssistance(MouseEvent mouseEvent) {

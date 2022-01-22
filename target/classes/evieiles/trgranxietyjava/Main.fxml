@@ -32,13 +32,13 @@
             </Pane>
             <Pane fx:id="csOfferPane" layoutX="300.0" layoutY="129.0" prefHeight="116.0" prefWidth="409.0">
                <children>
-                  <Button fx:id="ySkill" layoutX="14.0" layoutY="71.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="148.0" text="Yes, Please." />
+                  <Button fx:id="ySkill" layoutX="14.0" layoutY="71.0" mnemonicParsing="false" onMouseClicked="#skillAccept" prefHeight="19.0" prefWidth="148.0" text="Yes, Please." />
                   <Button fx:id="noSkill" layoutX="221.0" layoutY="71.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="160.0" text="I'm not sure it would help." />
                </children>
             </Pane>
             <Pane fx:id="preferencePane" layoutX="498.0" layoutY="393.0" prefHeight="153.0" prefWidth="478.0">
                <children>
-                  <Button fx:id="suggestSkillBtn" layoutX="14.0" layoutY="114.0" mnemonicParsing="false" text="Give me suggestions" />
+                  <Button fx:id="suggestSkillBtn" layoutX="14.0" layoutY="114.0" mnemonicParsing="false" onMouseClicked="#preferenceSelect" text="Give me suggestions" />
                   <CheckBox fx:id="artBox" layoutX="140.0" layoutY="68.0" mnemonicParsing="false" text="Art Time" />
                   <CheckBox fx:id="distractBox" layoutX="23.0" layoutY="68.0" mnemonicParsing="false" text="Distraction" />
                   <CheckBox fx:id="physBox" layoutX="264.0" layoutY="68.0" mnemonicParsing="false" text="Physical" />
