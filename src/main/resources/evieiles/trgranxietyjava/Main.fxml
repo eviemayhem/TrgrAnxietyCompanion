@@ -18,7 +18,6 @@
          <children>
             <ImageView fx:id="bubbleHolder" fitHeight="414.0" fitWidth="671.0" layoutX="297.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" />
             <Label fx:id="compassionText" alignment="TOP_LEFT" layoutX="312.0" layoutY="133.0" prefHeight="59.0" prefWidth="316.0" text="Are you currently feeling distressed?" wrapText="true" />
-            <Label fx:id="eventLoggedText" layoutX="531.0" layoutY="725.0" text="LogSuccessful" />
             <Pane id="dangerPane" fx:id="assessmentPane" layoutX="300.0" layoutY="170.0" prefHeight="82.0" prefWidth="365.0" stylesheets="@application.css">
                <children>
                   <Slider id="dangerPane" fx:id="dangerAssess" blockIncrement="1.0" layoutX="30.0" layoutY="22.0" majorTickUnit="1.0" max="5.0" min="1.0" minorTickCount="1" onMouseReleased="#dangerAssessment" prefHeight="38.0" prefWidth="308.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
@@ -49,7 +48,7 @@
                <children>
                   <Label fx:id="tryLbl" layoutX="14.0" layoutY="39.0" text="Please select a coping skill to try from the following:" />
                   <ChoiceBox fx:id="skillChoice" layoutX="16.0" layoutY="66.0" prefHeight="25.0" prefWidth="271.0" />
-                  <Button fx:id="letsGo" layoutX="297.0" layoutY="66.0" mnemonicParsing="false" text="Let's Go" />
+                  <Button fx:id="letsGo" layoutX="297.0" layoutY="66.0" mnemonicParsing="false" onMouseClicked="#skillSelection" text="Let's Go" />
                </children>
             </Pane>
             <Pane fx:id="followUpPane" layoutX="23.0" layoutY="707.0" prefHeight="116.0" prefWidth="508.0">

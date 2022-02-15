@@ -18,9 +18,9 @@ import java.util.Timer;
 
 public class MainController implements Initializable {
     //distraction skills
-    CopingSkills distraction = new CopingSkills("Dumb Dad Joke", "What do you call a witch who lives at the beach?\nA sand witch.", "Distraction.");
+    CopingSkills distraction = new CopingSkills("Dumb Dad Jokes", "What do you call a witch who lives at the beach?\nA sand witch.", "Distraction.");
     //art Skills
-    CopingSkills art = new CopingSkills("Drawing From Life", "Pick an object from your life and draw it.", "Art");
+    CopingSkills art = new CopingSkills("Drawing from Life", "Pick an object from your life and draw it.", "Art");
     //Physical
     CopingSkills physical = new CopingSkills("Hot/Cold Therapy", "Hold a hot cup of tea or maybe hold an icecube.", "Physical");
     //CBT
@@ -64,7 +64,7 @@ public class MainController implements Initializable {
     // creates arrays for coping skill options to use to populate depending on checkboxes selected
     private String[] artSkills = {"Drawing from Life"};
     private String[] distractskills = {"Dumb Dad Jokes"};
-    private String[] physSkills = {"Heat/Cold Therapy"};
+    private String[] physSkills = {"Hot/Cold Therapy"};
     private String[] cbtSkills = {"Cognitive Restructuring"};
 
     //Initiate log
@@ -159,14 +159,26 @@ public class MainController implements Initializable {
     //Choose Skill and change description
     @FXML
     private void skillSelection(MouseEvent mouseEvent){
-        triggerLog.setSkillSelection(skillChoice.getValue());
-        if (skillChoice.getValue() == "Distraction"){
+        String skill = skillChoice.getValue();
+        System.out.println(skill);
+        if (skill.equals(distraction.skillName)){
             compassionText.setText(distraction.skillDescription);
         }
-        else if (skillChoice.getValue() == "Art"){
+        else if (skill.equals(art.skillName)){
             compassionText.setText(art.skillDescription);
+
+        }
+        else if (skill.equals(physical.skillName)){
+            compassionText.setText(physical.skillDescription);
+        }
+        else if (skill.equals(cbt.skillName)){
+            compassionText.setText(cbt.skillDescription);
+        }
+        else{
+            System.out.println("Fail");
         }
     }
+
     //if refuseBtn was selected, delete assistanceBtn
     @FXML
     private void refuseAssistance(MouseEvent mouseEvent) {
